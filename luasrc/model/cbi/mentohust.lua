@@ -9,7 +9,7 @@ require("luci.tools.webadmin")
 
 m = Map("mentohust", translate("MentoHUST"), translate("锐捷、赛尔认证客户端."))
 function m.on_commit(self)
-os.execute("/etc/init.d/mentohust start")
+os.execute("/etc/init.d/mentohust restart")
 end
 
 s = m:section(TypedSection, "option", translate("启动选项"),translate("设置mentohust启动选项"))
