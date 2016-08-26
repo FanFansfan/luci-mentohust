@@ -7,26 +7,36 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=luci-app-mentohust
+PKG_NAME:=luci-app-mentohust-with-mentohust
 PKG_VERSION:=0.12
 PKG_RELEASE:=1
 PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_URL:=https://github.com/hexchain/mentohust-minimal.git
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_VERSION:=9725b027f8ec0f980e5f22f77d09a34d299c4bd2
+
 PO2LMO:=$(BUILD_DIR)/luci/build/po2lmo
 
 include $(INCLUDE_DIR)/package.mk
+include $(INCLUDE_DIR)/cmake.mk
+
+CMAKE_OPTIONS += \
+	-DBUILD_OPENWRT=1 -NO_DYLOAD=0
 
 define Package/$(PKG_NAME)
   SECTION:=luci
   CATEGORY:=LuCI
   SUBMENU:=3. Applications
-  DEPENDS:=
-  TITLE:=luci-app-mentohust                         
+  DEPENDS:=+libpcap
+  TITLE:=luci-app-mentohust-with-mentohust                        
   PKGARCH:=all
 endef
 
 define Package/$(PKG_NAME)/description
- mentohust web UI                           
+ mentohust & its web UI                           
 endef
 
 define Build/Compile
@@ -47,6 +57,7 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n $(1)/usr/lib/lua/luci
 	#$(PO2LMO) ./po/zh-cn/mentohust.po $(1)/usr/lib/lua/luci/i18n/mentohust.zh-cn.lmo
 	$(CP) ./luasrc/* $(1)/usr/lib/lua/luci
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/mentohust $(1)/usr/bin
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
