@@ -57,6 +57,8 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n $(1)/usr/lib/lua/luci
 	#$(PO2LMO) ./po/zh-cn/mentohust.po $(1)/usr/lib/lua/luci/i18n/mentohust.zh-cn.lmo
 	$(CP) ./luasrc/* $(1)/usr/lib/lua/luci
+	
+	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/mentohust $(1)/usr/bin
 endef
 
