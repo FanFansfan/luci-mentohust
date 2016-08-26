@@ -14,9 +14,9 @@ PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_URL:=https://github.com/hexchain/mentohust-minimal.git
+PKG_SOURCE_URL:=https://github.com/FanFansfan/mentohust-minimal
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=9725b027f8ec0f980e5f22f77d09a34d299c4bd2
+PKG_SOURCE_VERSION:=1a5151ea9044706115c86aed9fa7fac795518c3f
 
 PO2LMO:=$(BUILD_DIR)/luci/build/po2lmo
 
