@@ -31,8 +31,7 @@ define Package/$(PKG_NAME)
   CATEGORY:=LuCI
   SUBMENU:=3. Applications
   DEPENDS:=+libpcap
-  TITLE:=luci-app-mentohust-with-mentohust                        
-  PKGARCH:=all
+  TITLE:=luci-app-mentohust-with-mentohust
 endef
 
 define Package/$(PKG_NAME)/description
