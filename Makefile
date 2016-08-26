@@ -38,8 +38,6 @@ define Package/$(PKG_NAME)/description
  mentohust & its web UI                           
 endef
 
-define Build/Compile
-endef
 
 define Package/$(PKG_NAME)/postinst
 #!/bin/sh 
