@@ -24,7 +24,7 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 CMAKE_OPTIONS += \
-	-DBUILD_OPENWRT=1 -NO_DYLOAD=0
+	-DBUILD_OPENWRT=1 -DNO_DYLOAD=0
 
 define Package/$(PKG_NAME)
   SECTION:=luci
