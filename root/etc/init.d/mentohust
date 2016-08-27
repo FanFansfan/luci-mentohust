@@ -27,7 +27,7 @@ then
 	echo DataFile=$(uci get mentohust.@mentohust[0].DataFile) >> /var/run/mentohust.conf
 	echo dhcpscript=$(uci get mentohust.@mentohust[0].dhcpscript) >> /var/run/mentohust.conf
 	while ! ifconfig $(uci get mentohust.@mentohust[0].Nic) | grep UP &>/dev/null; do sleep 1; done
-	mentohust 2>&1 >/log/mentohust.daemon.log
+	mentohust 2>&1 >/tmp/log/mentohust.daemon.log
 	#mentohust >/dev/null 2>&1
 else
 	stop
